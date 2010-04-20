@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            name="Generate Documentation"
+            id="es.ctic.parrot.parrot_eclipse.commands.Generate">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="es.ctic.parrot.parrot_eclipse.commands.Generate"
+            class="es.ctic.parrot.parrot_eclipse.handlers.GenerateHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="es.ctic.parrot.parrot_eclipse.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Parrot"
+               mnemonic="M"
+               id="es.ctic.parrot.parrot_eclipse.menus.mainMenu">
+            <command
+                  commandId="es.ctic.parrot.parrot_eclipse.commands.Generate"
+                  icon="icons/parrot_16.png"
+                  id="es.ctic.parrot.parrot_eclipse.menus.generate"
+                  label="Generate Documentation"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="es.ctic.parrot.parrot_eclipse.toolbars.sampleToolbar">
+            <command
+                  commandId="es.ctic.parrot.parrot_eclipse.commands.Generate"
+                  icon="icons/parrot_16.png"
+                  id="es.ctic.parrot.parrot_eclipse.toolbars.generate"
+                  label="Generate Documentation (toolbar)"
+                  tooltip="Generate Documentation">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="es.ctic.parrot.parrot-eclipse.view-category"
+            name="Parrot">
+      </category>
+      <view
+            category="es.ctic.parrot.parrot-eclipse.view-category"
+            class="es.ctic.parrot.parrot_eclipse.views.DocBrowserView"
+            icon="icons/parrot_16.png"
+            id="es.ctic.parrot.parrot-eclipse.browser"
+            name="Parrot Browser"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.viewActions">
+      <viewContribution
+            id="es.ctic.parrot.parrot-eclipse.DocBrowserViewContribution"
+            targetID="es.ctic.parrot.parrot-eclipse.browser">
+         <action
+               class="es.ctic.parrot.parrot_eclipse.delegates.BackActionDelegate"
+               icon="icons/sample.gif"
+               id="es.ctic.parrot.parrot-eclipse.back"
+               label="Back"
+               style="push"
+               toolbarPath="navigation">
+         </action>
+      </viewContribution>
+   </extension>
+
+</plugin>
