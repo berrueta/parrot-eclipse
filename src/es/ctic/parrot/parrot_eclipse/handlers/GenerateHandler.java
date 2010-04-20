@@ -43,7 +43,9 @@ public class GenerateHandler extends AbstractHandler {
 			IDocumentProvider dp = editor.getDocumentProvider();
 			IDocument doc = dp.getDocument(editor.getEditorInput());
 			
+			System.out.println("Antes de llamar al Parrot Core");
 			String documentationPage = ParrotEclipsePlugin.getDefault().parrotCore.exec(doc.get());
+			System.out.println(documentationPage);
 			browserView.setBrowserHTML(documentationPage);
 		}
 		else {
