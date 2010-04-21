@@ -14,7 +14,7 @@ import es.ctic.parrot.parrot_eclipse.ParrotEclipsePlugin;
 public class DocBrowserView extends ViewPart {
 	
 	private Browser browser;
-	private String initialHTML = "<html><head></head><body>Click Parrot -> Generate</body></html>";
+	//private String initialHTML = "<html><head></head><body>Click Parrot -> Generate</body></html>";
 	
 	public static final String ViewID = "es.ctic.parrot.parrot-eclipse.browser";
 
@@ -50,7 +50,7 @@ public class DocBrowserView extends ViewPart {
 			ParrotEclipsePlugin.getDefault().getLog().log(status);
 			return; 
 		}
-		this.setBrowserHTML(initialHTML);
+//		this.setBrowserHTML(initialHTML);
 	}
 	
 	// TODO: Back and forward buttons enabling/disabling
