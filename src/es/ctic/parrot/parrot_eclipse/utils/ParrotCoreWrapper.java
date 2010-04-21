@@ -22,7 +22,8 @@ public class ParrotCoreWrapper {
 		
 	}
 	
-	public String exec(String input){
+	public String exec(String input, String contenttype){
+		/*
 		app = new ParrotAppServ();
         DocumentReader ontologyWrapper = new JenaOWLReader();
         DocumentReader ruleWrapper = new RifXmlReader(ontologyWrapper);
@@ -34,7 +35,7 @@ public class ParrotCoreWrapper {
 		
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		DocumentaryProject dp = new DocumentaryProject(template, outputStream, "EN");
-		dp.addInput(new StringInput(input, "application/rdf+xml"));
+		dp.addInput(new StringInput(input, contenttype));
 		
 		try {
 			app.createDocumentation(dp);
@@ -42,7 +43,8 @@ public class ParrotCoreWrapper {
 			throw new RuntimeException(e);
 		}
 		
-		return outputStream.toString();
+		return outputStream.toString();*/
+		return contenttype;
 	}
 		
 }

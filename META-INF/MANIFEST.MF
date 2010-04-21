@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Parrot_eclipse
+Bundle-Name: Parrot
 Bundle-SymbolicName: es.ctic.parrot.parrot_eclipse; singleton:=true
 Bundle-Version: 1.0.0.20100417
 Bundle-Activator: es.ctic.parrot.parrot_eclipse.ParrotEclipsePlugin

@@ -5,15 +5,23 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            name="Generate Documentation"
-            id="es.ctic.parrot.parrot_eclipse.commands.Generate">
+            id="es.ctic.parrot.parrot_eclipse.commands.ProcOWL"
+            name="Process OWL">
+      </command>
+      <command
+            id="es.ctic.parrot.parrot_eclipse.commands.ProcRIF"
+            name="Process RIF">
       </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            commandId="es.ctic.parrot.parrot_eclipse.commands.Generate"
-            class="es.ctic.parrot.parrot_eclipse.handlers.GenerateHandler">
+            class="es.ctic.parrot.parrot_eclipse.handlers.ProcOWLHandler"
+            commandId="es.ctic.parrot.parrot_eclipse.commands.ProcOWL">
+      </handler>
+      <handler
+            class="es.ctic.parrot.parrot_eclipse.handlers.ProcRIFHandler"
+            commandId="es.ctic.parrot.parrot_eclipse.commands.ProcRIF">
       </handler>
    </extension>
    <extension
@@ -34,11 +42,18 @@
                mnemonic="M"
                id="es.ctic.parrot.parrot_eclipse.menus.mainMenu">
             <command
-                  commandId="es.ctic.parrot.parrot_eclipse.commands.Generate"
+                  commandId="es.ctic.parrot.parrot_eclipse.commands.ProcOWL"
                   icon="icons/parrot_16.png"
-                  id="es.ctic.parrot.parrot_eclipse.menus.generate"
-                  label="Generate Documentation"
-                  mnemonic="S">
+                  id="es.ctic.parrot.parrot_eclipse.menus.ProcOWL"
+                  label="Process OWL"
+                  style="push">
+            </command>
+            <command
+                  commandId="es.ctic.parrot.parrot_eclipse.commands.ProcRIF"
+                  icon="icons/parrot_16.png"
+                  id="es.ctic.parrot.parrot_eclipse.menus.ProcRIF"
+                  label="Process RIF"
+                  style="push">
             </command>
          </menu>
       </menuContribution>
@@ -47,11 +62,18 @@
          <toolbar
                id="es.ctic.parrot.parrot_eclipse.toolbars.sampleToolbar">
             <command
-                  commandId="es.ctic.parrot.parrot_eclipse.commands.Generate"
+                  commandId="es.ctic.parrot.parrot_eclipse.commands.ProcOWL"
                   icon="icons/parrot_16.png"
-                  id="es.ctic.parrot.parrot_eclipse.toolbars.generate"
-                  label="Generate Documentation (toolbar)"
-                  tooltip="Generate Documentation">
+                  id="es.ctic.parrot.parrot_eclipse.menus.ProcOWL"
+                  label="Process OWL"
+                  style="push">
+            </command>
+            <command
+                  commandId="es.ctic.parrot.parrot_eclipse.commands.ProcRIF"
+                  icon="icons/parrot_16.png"
+                  id="es.ctic.parrot.parrot_eclipse.menus.ProcRIF"
+                  label="Process RIF"
+                  style="push">
             </command>
          </toolbar>
       </menuContribution>

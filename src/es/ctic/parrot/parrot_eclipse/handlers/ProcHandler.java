@@ -4,38 +4,43 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.jface.text.IDocument;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.texteditor.IDocumentProvider;
 import org.eclipse.ui.texteditor.ITextEditor;
-import org.eclipse.jface.text.IDocument;
+
 import es.ctic.parrot.parrot_eclipse.ParrotEclipsePlugin;
 import es.ctic.parrot.parrot_eclipse.views.DocBrowserView;
 
-public class GenerateHandler extends AbstractHandler {
+public abstract class ProcHandler extends AbstractHandler {
 
-	public GenerateHandler() {		
-	}
-
-	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-		IWorkbenchPage page = window.getActivePage();
-		DocBrowserView browserView;
-		
+	private IWorkbenchPage getActiveWorkbenchPage(ExecutionEvent event) {
 		try {
-			browserView = (DocBrowserView)page.showView(DocBrowserView.ViewID);
+			return HandlerUtil.getActiveWorkbenchWindowChecked(event).getActivePage();
+		} catch (ExecutionException e1) {
+			throw new RuntimeException();
+		}
+	}
+	
+	private DocBrowserView getParrotBrowserView(IWorkbenchPage page) {
+		try {
+			return (DocBrowserView)page.showView(DocBrowserView.ViewID);
 		}
 		catch (PartInitException e) {
-			String msg = "Browser view not available";
-			Status status = new Status(Status.ERROR, ParrotEclipsePlugin.PLUGIN_ID, msg);
-			ParrotEclipsePlugin.getDefault().getLog().log(status);
-			return null;
+			throw new RuntimeException();
 		}
-		
-		IEditorPart part = page.getActiveEditor();
+	}
+	
+	private IEditorPart getActiveEditor(IWorkbenchPage page) {
+		return page.getActiveEditor();
+	}
+	
+	protected Object process(ExecutionEvent event, String contenttype) {
+		IWorkbenchPage page = getActiveWorkbenchPage(event);
+		IEditorPart part = getActiveEditor(page);
 		
 		if(part != null) {
 			// TODO: Verify casting
@@ -43,16 +48,19 @@ public class GenerateHandler extends AbstractHandler {
 			IDocumentProvider dp = editor.getDocumentProvider();
 			IDocument doc = dp.getDocument(editor.getEditorInput());
 			
-			System.out.println("Antes de llamar al Parrot Core");
-			String documentationPage = ParrotEclipsePlugin.getDefault().parrotCore.exec(doc.get());
-			System.out.println(documentationPage);
-			browserView.setBrowserHTML(documentationPage);
+			// Ask Parrot Core
+	//		System.out.println("Antes de llamar al Parrot Core");
+			String documentationPage = ParrotEclipsePlugin.getDefault().parrotCore.exec(doc.get(), 
+					contenttype);
+		//	System.out.println(documentationPage);
+			
+			// Render HTML output
+			getParrotBrowserView(page).setBrowserHTML(documentationPage);
 		}
 		else {
 			String msg = "No active editor, please select one";
 			Status status = new Status(Status.ERROR, ParrotEclipsePlugin.PLUGIN_ID, msg);
 			ParrotEclipsePlugin.getDefault().getLog().log(status);
-			browserView.setBrowserHTML("<html><body>See error log</body></html>");
 		}
 		
 		return null;
