@@ -5,9 +5,7 @@ Bundle-SymbolicName: es.ctic.parrot.parrot_eclipse; singleton:=true
 Bundle-Version: 1.0.0.20100417
 Bundle-Activator: es.ctic.parrot.parrot_eclipse.ParrotEclipsePlugin
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.eclipse.core.resources;bundle-version="3.5.2",
- org.eclipse.ui.views.log;bundle-version="1.0.100"
+ org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: CTIC
