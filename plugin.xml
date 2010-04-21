@@ -43,14 +43,14 @@
                id="es.ctic.parrot.parrot_eclipse.menus.mainMenu">
             <command
                   commandId="es.ctic.parrot.parrot_eclipse.commands.ProcOWL"
-                  icon="icons/parrot_16.png"
+                  icon="icons/parrot_owl.png"
                   id="es.ctic.parrot.parrot_eclipse.menus.ProcOWL"
                   label="Process OWL"
                   style="push">
             </command>
             <command
                   commandId="es.ctic.parrot.parrot_eclipse.commands.ProcRIF"
-                  icon="icons/parrot_16.png"
+                  icon="icons/parrot_rif.png"
                   id="es.ctic.parrot.parrot_eclipse.menus.ProcRIF"
                   label="Process RIF"
                   style="push">
@@ -63,14 +63,14 @@
                id="es.ctic.parrot.parrot_eclipse.toolbars.sampleToolbar">
             <command
                   commandId="es.ctic.parrot.parrot_eclipse.commands.ProcOWL"
-                  icon="icons/parrot_16.png"
+                  icon="icons/parrot_owl.png"
                   id="es.ctic.parrot.parrot_eclipse.menus.ProcOWL"
                   label="Process OWL"
                   style="push">
             </command>
             <command
                   commandId="es.ctic.parrot.parrot_eclipse.commands.ProcRIF"
-                  icon="icons/parrot_16.png"
+                  icon="icons/parrot_rif.png"
                   id="es.ctic.parrot.parrot_eclipse.menus.ProcRIF"
                   label="Process RIF"
                   style="push">
@@ -87,7 +87,7 @@
       <view
             category="es.ctic.parrot.parrot-eclipse.view-category"
             class="es.ctic.parrot.parrot_eclipse.views.DocBrowserView"
-            icon="icons/parrot_16.png"
+            icon="icons/parrot_owl.png"
             id="es.ctic.parrot.parrot-eclipse.browser"
             name="Parrot Browser"
             restorable="true">
