@@ -20,8 +20,8 @@ public abstract class ProcHandler extends AbstractHandler {
 	private IWorkbenchPage getActiveWorkbenchPage(ExecutionEvent event) {
 		try {
 			return HandlerUtil.getActiveWorkbenchWindowChecked(event).getActivePage();
-		} catch (ExecutionException e1) {
-			throw new RuntimeException();
+		} catch (ExecutionException e) {
+			throw new RuntimeException(e);
 		}
 	}
 	
@@ -30,7 +30,7 @@ public abstract class ProcHandler extends AbstractHandler {
 			return (DocBrowserView)page.showView(DocBrowserView.ViewID);
 		}
 		catch (PartInitException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 	
