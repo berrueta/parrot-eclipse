@@ -23,7 +23,6 @@ public class ParrotCoreWrapper {
 	}
 	
 	public String exec(String input, String contenttype){
-		/*
 		app = new ParrotAppServ();
         DocumentReader ontologyWrapper = new JenaOWLReader();
         DocumentReader ruleWrapper = new RifXmlReader(ontologyWrapper);
@@ -43,8 +42,7 @@ public class ParrotCoreWrapper {
 			throw new RuntimeException(e);
 		}
 		
-		return outputStream.toString();*/
-		return contenttype;
+		return outputStream.toString();
 	}
 		
 }
