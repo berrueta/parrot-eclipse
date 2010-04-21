@@ -25,15 +25,6 @@
       </handler>
    </extension>
    <extension
-         point="org.eclipse.ui.bindings">
-      <key
-            commandId="es.ctic.parrot.parrot_eclipse.commands.sampleCommand"
-            contextId="org.eclipse.ui.contexts.window"
-            sequence="M1+6"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
-      </key>
-   </extension>
-   <extension
          point="org.eclipse.ui.menus">
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
