@@ -26,14 +26,14 @@ public class ParrotCoreWrapper {
 	}
 	
 	public String exec(String input, String contenttype){
+		System.out.println("Exec Parrot plugin"); // DEBUG
 		app = new ParrotAppServ();
         DocumentReader ontologyWrapper = new JenaOWLReader();
         DocumentReader ruleWrapper = new RifleXmlReader(ontologyWrapper);
         app.setOntologyWrapper(ontologyWrapper);
         app.setRuleWrapper(ruleWrapper);
         template = Thread.currentThread().getContextClassLoader().getResourceAsStream("html/template.vm");
-		// To debug stream
-		System.out.println("Parrot Core Input:" + input);
+		System.out.println("Parrot Core Input:" + input); // DEBUG
 		
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		DocumentaryProject dp = new DocumentaryProject(Locale.ENGLISH);
