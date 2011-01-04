@@ -11,5 +11,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: CTIC
 Import-Package: org.eclipse.jface.text,
  org.eclipse.ui.texteditor
-Bundle-ClassPath: parrot-core-1.0-SNAPSHOT.jar,
- .
+Bundle-ClassPath: .,
+ lib/parrot-core-1.0-SNAPSHOT-jar-with-dependencies.jar
